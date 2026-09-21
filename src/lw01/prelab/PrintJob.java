@@ -5,7 +5,7 @@ abstract public class PrintJob implements Chargeable {
     
     protected PrintJob(String id, int pages){
         if (pages<=0) {
-            throw new IllegalArgumentException("blabla");
+            throw new IllegalArgumentException("jumlah halaman tidak boleh negatif");
         }
         this.id = id;
         this.pages = pages;
@@ -24,7 +24,7 @@ abstract public class PrintJob implements Chargeable {
 
     public int calculateCharge(int copies){
         if(copies <= 0 ||copies >10){
-            throw new IllegalArgumentException("blablabla");
+            throw new IllegalArgumentException("Halaman harus antara 1 dan 10");
         }
         return copies*calculateCharge();
     }
