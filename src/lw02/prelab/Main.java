@@ -23,7 +23,7 @@ public class Main {
 
         // list customer beserta saldonya, urut dari yang pertama muncul
         LinkedList<String[]> customers = new LinkedList<>();
-        for (String[] trx : transactions) {
+        for (String[] trx :  transactions) {
             String nama = trx[0];
             boolean sdhAda = false;
 
