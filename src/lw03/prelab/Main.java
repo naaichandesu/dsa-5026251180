@@ -15,7 +15,19 @@ public class Main {
 
         while (problemOne.hasNextLine()) {
             String line = problemOne.nextLine();
-            String[] parts = line.split(" ", 2);
+            String[] parts = line.split(" ", 2); //maksimal elemen akhirnya ada 2, atau displit jadi 2 bagian
+
+            /* String operation = part[0]
+               String song = part [1]
+
+               if (operation.equals("ADD")){
+                    playlist.add(song);
+               } else if(operation.equals("INSERT")) {
+                    String[] insertData = song.split(" ")
+                    int index = Integer.parseInt(insertData[0])
+               }
+
+            */
 
             if (parts[0].equals("ADD")) {
                 playlist.add(parts[1]);
@@ -30,7 +42,7 @@ public class Main {
         problemOne.close();
 
         System.out.println("===== Problem 1 =====");
-        System.out.println("Total songs: " + playlist.size());
+        System.out.println("Total songs: " + playlist.size()); //playlist.size buat ambil total song nya
         for (int i = 0; i < playlist.size(); i++) {
             System.out.println((i + 1) + ": " + playlist.get(i));
         }
@@ -53,7 +65,7 @@ public class Main {
         System.out.println("===== Problem 2 =====");
         System.out.println("Unique participants: " + participants.size());
         int no = 1;
-        for (String name : participants) {
+        for (String name : participants) { //set ga bisa method get
             System.out.println(no + ". " + name);
             no++;
         }
@@ -65,9 +77,11 @@ public class Main {
         Scanner problemThree = new Scanner(Main.class.getResourceAsStream("inventory.txt"));
 
         while (problemThree.hasNext()) {
-            String type = problemThree.next();
-            String product = problemThree.next();
-            int qty = problemThree.nextInt();
+            String line = problemThree.nextLine();
+            String[] parts = line.split(" ");
+            String type = parts[0];
+            String product = parts[1];
+            int qty = Integer.parseInt(parts[2]);
 
             if (type.equals("ADD")) {
                 if (stock.containsKey(product)) {
