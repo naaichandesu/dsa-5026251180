@@ -26,7 +26,7 @@ public class Main {
         queue.add(start);
         visited.add(start);
         while (!queue.isEmpty()) {
-            int current = queue.poll();                  // take the building at the front of the queue
+            int current = queue.poll();         // take the building at the front of the queue
             order.add(current);
             for (int next = 0; next < size; next++) {
                 if (graph[current][next] > 0 && !visited.contains(next)) {                          // next is a neighbour that has not been visited
@@ -52,19 +52,19 @@ public class Main {
     }
 
     static void dijkstraAlg(int start, int dest) {
-        int[] dist = new int[size];
+        int[] dist = new int[size]; //nyimpen distance dri setiap 
         for (int i = 0; i < size; i++) {
-            dist[i] = Integer.MAX_VALUE;
+            dist[i] = Integer.MAX_VALUE; //ambil yg paling besar dlu bru dibandingin 
         }
         dist[start] = 0;
         boolean[] visited = new boolean[size];
         int[] prev = new int[size];
 
         for (int i = 0; i < size; i++) {
-            int current = findTheNextNode(visited, dist);
+            int current = findTheNextNode(visited, dist); //cari jarak terdekat
             visited[current] = true;                                // mark current as visited
             for (int next = 0; next < size; next++) {
-                int newDist = dist[current] + graph[current][next];
+                int newDist = dist[current] + graph[current][next]; //hitung jarak yang baru
                 if (graph[current][next] > 0 && newDist < dist[next]) {   // the new distance is shorter
                     dist[next] = newDist;
                     prev[next] = current;                        // remember that next is reached from current
@@ -87,7 +87,7 @@ public class Main {
         int min = Integer.MAX_VALUE;
         int closest = -1;
         for (int i = 0; i < size; i++) {
-            if (!visited[i] && dist[i] < min) {                          // i is unvisited and closer than min
+            if (!visited[i] && dist[i] < min) {         // i is unvisited and closer than min
                 min = dist[i];
                 closest = i;
             }
